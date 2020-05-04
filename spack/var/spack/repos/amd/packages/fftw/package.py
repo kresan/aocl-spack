@@ -38,7 +38,7 @@ class Fftw(AutotoolsPackage):
 
     conflicts('%gcc@7:7.2', when="@2.1")
     def configure(self, spec, prefix):
-	config_args = []
+        config_args = []
         config_args = [
             '--enable-sse2',
             '--enable-avx',
