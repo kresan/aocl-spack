@@ -40,20 +40,19 @@ class Fftw(AutotoolsPackage):
     def configure(self, spec, prefix):
 	config_args = []
         config_args = [
-	    '--enable-sse2',
-	    '--enable-avx',
-	    '--enable-avx2',
-	    '--enable-mpi',
-	    '--enable-openmp',
-	    '--enable-shared',
-	    '--enable-amd-opt'
+            '--enable-sse2',
+            '--enable-avx',
+            '--enable-avx2',
+            '--enable-mpi',
+            '--enable-openmp',
+            '--enable-shared',
+            '--enable-amd-opt'
         ]
 
         if '+single' in self.spec:
             config_args.append("--enable-single")
 
-        configure("--prefix=" + prefix,
-                 *config_args)
+        configure("--prefix=" + prefix, *config_args)
 
     def build(self, spec, prefix):
         make('clean')
