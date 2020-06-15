@@ -53,4 +53,7 @@ class Libflame(AutotoolsPackage):
     def build(self, spec, prefix):
         make('clean')
         make()
+
+    def install(self, spec, prefix):
         make('install')
+
