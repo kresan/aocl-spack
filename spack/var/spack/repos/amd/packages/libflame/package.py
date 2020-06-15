@@ -37,6 +37,8 @@ class Libflame(AutotoolsPackage):
     depends_on('blis')
     phases = ['configure', 'build', 'install']
 
+    patch('version_2.1.patch', level=0, when='@2.1')
+
     def configure(self, spec, prefix):
         config_args = [
             '--enable-lapack2flame',
