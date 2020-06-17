@@ -39,21 +39,14 @@ class Libflame(AutotoolsPackage):
 
     patch('version_2.1.patch', level=0, when='@2.1')
 
-    def configure(self, spec, prefix):
+    def configure_args(self):
+        spec = self.spec
         config_args = [
             '--enable-lapack2flame',
-	    '--enable-cblas-interfaces',
-	    '--enable-dynamic-build',
-	    '--enable-max-arg-list-hack'
+            '--enable-cblas-interfaces',
+            '--enable-dynamic-build',
+            '--enable-max-arg-list-hack'
         ]
 
-        configure("--prefix=" + prefix,
-                  *config_args)
-
-    def build(self, spec, prefix):
-        make('clean')
-        make()
-
-    def install(self, spec, prefix):
-        make('install')
+        return config_args
 
