@@ -35,12 +35,11 @@ class Libflame(AutotoolsPackage):
     version('1.0', tag='1.0')
 
     depends_on('blis')
-    phases = ['configure', 'build', 'install']
 
     patch('version_2.1.patch', level=0, when='@2.1')
 
     def configure_args(self):
-        spec = self.spec
+
         config_args = [
             '--enable-lapack2flame',
             '--enable-cblas-interfaces',
